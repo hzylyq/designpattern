@@ -15,5 +15,5 @@ func (c *charDisplay) print() {
 }
 
 func (c *charDisplay) close() {
-	fmt.Print(">>")
+	fmt.Println(">>")
 }

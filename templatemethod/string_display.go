@@ -4,7 +4,6 @@ import "fmt"
 
 type stringDisplay struct {
 	str   string
-	width int
 }
 
 func (s *stringDisplay) open() {
@@ -12,7 +11,7 @@ func (s *stringDisplay) open() {
 }
 
 func (s *stringDisplay) print() {
-	fmt.Print("|" + s.str + "|\n")
+	fmt.Println("|" + s.str + "|")
 }
 
 func (s *stringDisplay) close() {
@@ -21,8 +20,8 @@ func (s *stringDisplay) close() {
 
 func (s *stringDisplay) printLine() {
 	fmt.Print("+")
-	for i := 0; i < s.width; i++ {
+	for i := 0; i < len(s.str); i++ {
 		fmt.Print("-")
 	}
-	fmt.Print("+")
+	fmt.Println("+")
 }

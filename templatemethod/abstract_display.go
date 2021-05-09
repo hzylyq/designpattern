@@ -11,7 +11,9 @@ type d struct {
 }
 
 func (d *d) display() {
+	d.AbstractDisplay.open()
 	for i := 0; i < 5; i++ {
 		d.AbstractDisplay.print()
 	}
+	d.AbstractDisplay.close()
 }
