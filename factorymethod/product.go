@@ -1,5 +1,5 @@
 package factorymethod
 
-type Product interface {
+type IProduct interface {
 	use()
 }

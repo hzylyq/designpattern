@@ -7,12 +7,12 @@ type IdCard struct {
 }
 
 func New(owner string) *IdCard {
-	 fmt.Println()
+	fmt.Println("制作" + owner + "的ID卡。")
 	return &IdCard{
 		Owner: owner,
 	}
 }
 
 func (card *IdCard) use() {
-	fmt.Println("")
+	fmt.Println("使用" + card.Owner + "的ID卡。")
 }

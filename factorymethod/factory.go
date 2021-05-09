@@ -1,17 +1,16 @@
 package factorymethod
 
-type factory struct {
-
+type IFactory interface {
+	createProduct(owner string) IProduct
+	registerProduct(product IProduct)
 }
 
-func (f *factory) Create(owner string) {
-
+type Factory struct {
+	AbstractFactory IFactory
 }
 
-func (f *factory) createProduct(owner string) {
-
-}
-
-func (f *factory) registerProduct(product Product){
-
+func (f *Factory) create(owner string) IProduct {
+	p := f.AbstractFactory.createProduct(owner)
+	f.AbstractFactory.registerProduct(p)
+	return p
 }
