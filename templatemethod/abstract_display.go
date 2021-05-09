@@ -4,14 +4,13 @@ type AbstractDisplay interface {
 	open()
 	print()
 	close()
-	display()
 }
 
-type display struct {
+type d struct {
 	AbstractDisplay AbstractDisplay
 }
 
-func (d *display) display() {
+func (d *d) display() {
 	for i := 0; i < 5; i++ {
 		d.AbstractDisplay.print()
 	}

@@ -1,21 +1,19 @@
 package templatemethod
 
-type charDisplay struct {
+import "fmt"
 
+type charDisplay struct {
+	ch string
 }
 
 func (c *charDisplay) open() {
-
+	fmt.Print("<<")
 }
 
 func (c *charDisplay) print() {
-
+	fmt.Print(c.ch)
 }
 
 func (c *charDisplay) close() {
-
-}
-
-func (c *charDisplay) display() {
-
+	fmt.Print(">>")
 }
