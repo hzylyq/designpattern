@@ -1,9 +1,20 @@
 package singleton
 
-type Singleton struct {
+import "sync"
 
-}
+type singleton struct{}
 
-func (s *Singleton) getInstance() *Singleton {
-	return s
+var lock = &sync.Mutex{}
+
+var singleInstance *singleton
+
+func getInstance() *singleton {
+	if singleInstance == nil {
+		lock.Lock()
+		defer lock.Unlock()
+		if singleInstance == nil {
+			singleInstance = &singleton{}
+		}
+	}
+	return singleInstance
 }
