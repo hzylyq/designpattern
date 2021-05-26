@@ -1,24 +1,29 @@
 package abstractfactory
 
-type Page interface {
+import (
+	"io/ioutil"
+	"os"
+)
+
+
+
+type Page struct {
+	Title   string
+	Author  string
+	Content []Item
 	Item
 }
 
-type ListLink struct {
-	Caption string
-	Url     string
+func (l *Page) Add(item Item) {
+	l.Content = append(l.Content, item)
 }
 
-func (l *ListLink) makeHTML() string {
-	return " <li><a href=\\" + l.Url + "\\" + l.Caption + "</a></li>\n"
+func (l *Page) OutPut() error {
+	fileName := l.Title + ".html"
+	return ioutil.WriteFile(fileName, []byte(l.makeHTML()), os.ModePerm)
 }
 
-type TablePage struct {
-	Title  string
-	Author string
-}
-
-func (l *TablePage) makeHTML() string {
+func (l *Page) makeHTML() string {
 	var b []byte
 	b = append(b, []byte("<html><head><title>"+l.Title+"</title></head><html")...)
 	b = append(b, []byte("<body>\n")...)

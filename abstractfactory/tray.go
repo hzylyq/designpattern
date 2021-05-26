@@ -1,9 +1,14 @@
 package abstractfactory
 
-type Tray interface {
-	makeHTML()
+type Tray struct {
+	List []Item
 }
 
-type TableTray struct {
-
+func (t *Tray) add(item Item) {
+	t.List = append(t.List, item)
 }
+
+type ListTray struct {
+}
+
+
