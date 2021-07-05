@@ -5,8 +5,6 @@ import (
 	"os"
 )
 
-
-
 type Page struct {
 	Title   string
 	Author  string
@@ -29,12 +27,12 @@ func (l *Page) makeHTML() string {
 	b = append(b, []byte("<body>\n")...)
 	b = append(b, []byte("<h1>"+l.Title+"</h1>\\n")...)
 	b = append(b, []byte("table width=\"80%\" border=\"3\">\n")...)
-	
+
 	// todo range list
-	
+
 	b = append(b, []byte("</table>\n")...)
 	b = append(b, []byte("<hr><address>"+l.Author+"</address>")...)
 	b = append(b, []byte("</body></html>\n")...)
-	
+
 	return string(b)
 }
