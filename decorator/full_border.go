@@ -4,32 +4,28 @@ type FullBorder struct {
 	Border
 }
 
-func NewFullBorder(border Border) *FullBorder {
+func NewFullBorder(d IDisplay) *FullBorder {
 	return &FullBorder{
-		Border: border,
+		Border: Border{IDisplay: d},
 	}
 }
 
 func (f *FullBorder) Columns() int {
-	return 1 + f.Display.Columns() + 1
+	return 1 + f.Border.Columns() + 1
 }
 
 func (f *FullBorder) Rows() int {
-	return 1 + f.Display.Rows() + 1
+	return 1 + f.Border.Rows() + 1
 }
 
 func (f *FullBorder) RowText(row int) string {
 	if row == 0 {
-		return "+" + f.makeLine('-', f.Display.Columns()) + "+"
-	} else if row == f.Display.Rows()+1 {
-		return "+" + f.makeLine('-', f.Display.Columns()) + "+"
+		return "+" + f.makeLine('-', f.Border.Columns()) + "+"
+	} else if row == f.Border.Rows()+1 {
+		return "+" + f.makeLine('-', f.Border.Columns()) + "+"
 	} else {
-		return "|" + f.Display.RowText(row-1) + "|"
+		return "|" + f.Border.RowText(row-1) + "|"
 	}
-}
-
-func (f *FullBorder) show() {
-	panic("implement me")
 }
 
 func (f *FullBorder) makeLine(ch byte, count int) string {
