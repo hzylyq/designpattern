@@ -1,15 +1,15 @@
 package decorator
 
+import "log"
+
 type SideBorder struct {
 	borderChar byte
-	Border
+	IDisplay
 }
 
 func NewSideBorder(d IDisplay, ch byte) *SideBorder {
 	return &SideBorder{
-		Border: Border{
-			IDisplay: d,
-		},
+		IDisplay:   d,
 		borderChar: ch,
 	}
 }
@@ -24,4 +24,10 @@ func (s *SideBorder) Rows() int {
 
 func (s *SideBorder) RowText(row int) string {
 	return string(s.borderChar) + s.IDisplay.RowText(row) + string(s.borderChar)
+}
+
+func (s *SideBorder) show() {
+	for i := 0; i < s.Rows(); i++ {
+		log.Println(s.RowText(i))
+	}
 }

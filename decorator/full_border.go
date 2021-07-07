@@ -1,5 +1,7 @@
 package decorator
 
+import "log"
+
 type FullBorder struct {
 	Border
 }
@@ -34,4 +36,10 @@ func (f *FullBorder) makeLine(ch byte, count int) string {
 		str = append(str, ch)
 	}
 	return string(str)
+}
+
+func (f *FullBorder) show() {
+	for i := 0; i < f.Rows(); i++ {
+		log.Println(f.RowText(i))
+	}
 }
