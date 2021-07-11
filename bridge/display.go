@@ -8,4 +8,9 @@ type Display interface {
 }
 
 type DisplayImpl interface {
+	rawOpen()
+	rawPrint()
+	rawClose()
 }
+
+
