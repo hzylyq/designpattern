@@ -1,28 +1,28 @@
 package bridge
 
-type CommonDisplay struct {
+type Display struct {
 	Method DisplayImpl
 }
 
-func NewCommonDisplay(impl DisplayImpl) *CommonDisplay {
-	return &CommonDisplay{
+func NewDisplay(impl DisplayImpl) *Display {
+	return &Display{
 		Method: impl,
 	}
 }
 
-func (d *CommonDisplay) open() {
+func (d *Display) open() {
 	d.Method.rawOpen()
 }
 
-func (d *CommonDisplay) print() {
+func (d *Display) print() {
 	d.Method.rawPrint()
 }
 
-func (d *CommonDisplay) close() {
+func (d *Display) close() {
 	d.Method.rawClose()
 }
 
-func (d *CommonDisplay) display() {
+func (d *Display) display() {
 	d.open()
 	d.print()
 	d.close()

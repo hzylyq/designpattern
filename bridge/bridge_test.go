@@ -3,7 +3,7 @@ package bridge
 import "testing"
 
 func TestBridge(t *testing.T) {
-	d1 := NewCommonDisplay(NewStringDisplayImpl("Hello China."))
+	d1 := NewDisplay(NewStringDisplayImpl("Hello China."))
 	d2 := NewCountDisplay(NewStringDisplayImpl("Hello World."))
 	d3 := NewCountDisplay(NewStringDisplayImpl("Hello, Universe."))
 

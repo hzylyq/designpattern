@@ -1,12 +1,12 @@
 package bridge
 
 type CountDisplay struct {
-	CommonDisplay
+	Display
 }
 
 func NewCountDisplay(impl DisplayImpl) *CountDisplay {
 	return &CountDisplay{
-		CommonDisplay{
+		Display{
 			Method: impl,
 		},
 	}
