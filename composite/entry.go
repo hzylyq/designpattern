@@ -3,6 +3,6 @@ package composite
 type entry interface {
 	Name() string
 	Size() int
-	PrintList()
+	PrintList(string)
 	Add(entry)
 }

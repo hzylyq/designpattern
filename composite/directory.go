@@ -25,10 +25,10 @@ func (d *directory) Size() int {
 	return size
 }
 
-func (d *directory) PrintList() {
-	log.Println(d.Name())
+func (d *directory) PrintList(prefix string) {
+	log.Println(prefix + "/" + d.Name())
 	for _, ent := range d.children {
-		ent.PrintList()
+		ent.PrintList(prefix + "/" + d.Name())
 	}
 }
 

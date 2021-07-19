@@ -22,8 +22,8 @@ func (f *file) Size() int {
 	return f.size
 }
 
-func (f *file) PrintList() {
-	log.Println(f.Name())
+func (f *file) PrintList(prefix string) {
+	log.Println(prefix + "/" + f.Name())
 }
 
 func (f *file) Add(entry) {}
