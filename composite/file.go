@@ -1,5 +1,7 @@
 package composite
 
+import "log"
+
 type file struct {
 	name string
 	size int
@@ -21,9 +23,7 @@ func (f *file) Size() int {
 }
 
 func (f *file) PrintList() {
-
+	log.Println(f.Name())
 }
 
-func (f *file) Add(entry) error {
-	return nil
-}
+func (f *file) Add(entry) {}

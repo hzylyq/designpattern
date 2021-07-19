@@ -1,5 +1,7 @@
 package composite
 
+import "log"
+
 type directory struct {
 	name     string
 	children []entry
@@ -24,10 +26,12 @@ func (d *directory) Size() int {
 }
 
 func (d *directory) PrintList() {
-
+	log.Println(d.Name())
+	for _, ent := range d.children {
+		ent.PrintList()
+	}
 }
 
-func (d *directory) Add(ent entry) error {
+func (d *directory) Add(ent entry) {
 	d.children = append(d.children, ent)
-	return nil
 }
