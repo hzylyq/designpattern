@@ -33,3 +33,15 @@ func (s *support) Support(t trouble) {
 		s.Fail(t)
 	}
 }
+
+type NoSupportManager struct{}
+
+func (n *NoSupportManager) resolve(t trouble) bool {
+	return false
+}
+
+func NewNoSupport() *support {
+	return &support{
+		Manager: &NoSupportManager{},
+	}
+}
