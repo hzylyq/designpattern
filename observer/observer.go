@@ -1,5 +1,5 @@
 package observer
 
 type Observer interface {
-	Update()
+	Update(n *NumberGenerator)
 }
