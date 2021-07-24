@@ -16,6 +16,6 @@ func TestMemento(t *testing.T) {
 		fmt.Println("当前状态:", gamer)
 
 		gamer.Bet()
-		
+
 	}
 }
