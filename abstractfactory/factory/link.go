@@ -1,9 +1,4 @@
-package abstractfactory
-
-type Link struct {
-	Url string
-	Item
-}
+package factory
 
 type ListLink struct {
 	Caption string
@@ -12,4 +7,11 @@ type ListLink struct {
 
 func (l *ListLink) makeHTML() string {
 	return " <li><a href=\\" + l.Url + "\\" + l.Caption + "</a></li>\n"
+}
+
+func NewListLink(caption, url string) Item {
+	return &ListLink{
+		Caption: caption,
+		Url:     url,
+	}
 }
