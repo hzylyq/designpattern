@@ -1,6 +1,6 @@
 package strategy
 
 type IStrategy interface {
-	nextHand()
+	nextHand() *Hand
 	study(win bool)
 }

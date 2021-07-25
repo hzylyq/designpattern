@@ -9,5 +9,4 @@ func TestDigitObserver_Update(t *testing.T) {
 	generator.addObserver(ob1)
 	generator.addObserver(ob2)
 	generator.Execute()
-
 }
