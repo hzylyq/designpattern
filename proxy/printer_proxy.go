@@ -5,6 +5,19 @@ type printerProxy struct {
 	real *printer
 }
 
+func NewPrinterProxy(name string) *printerProxy {
+	return &printerProxy{
+		name: name,
+	}
+}
+
+func (p *printerProxy) SetPrintName(name string) {
+	if p.real != nil {
+		p.real.setPrinterName(name)
+	}
+	p.name = name
+}
+
 func (p *printerProxy) PrintName() string {
 	return p.name
 }
